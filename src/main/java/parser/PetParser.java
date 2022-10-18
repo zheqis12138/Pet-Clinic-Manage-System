@@ -39,8 +39,8 @@ public class PetParser {
         int startOfS = input.indexOf(" s/");
 
         if(startOfN > startOfS || startOfN == -1|| startOfS == -1){
-            System.out.println("Error: format of parameters entered for adding a pet is invalid");
-            return new EndCommand();
+            //System.out.println("Error: format of parameters entered for adding a pet is invalid");
+            return new PetIncorrectCommand("Invalid input! Please follow the stipulated format: pet add n/name s/species");
         }
 
 
@@ -54,9 +54,9 @@ public class PetParser {
         int index = parser.indexOfRemove(input);
         if(index == -1){
             System.out.println("input invalid");
-            return new EndCommand();
+            return new PetIncorrectCommand("Invalid Input ! Please follow the stipulated format: pet remove i/ID");
         }
-
+        
         return new RemovePetCommand(index);
     }
 

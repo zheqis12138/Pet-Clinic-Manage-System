@@ -22,7 +22,7 @@ public class AddPetCommand extends Command {
         PetList.petList.add(petToAdd);
         Pet.numOfPets++;
         printAddPetMessage();
-    }
+     }
 
     public void printAddPetMessage(){
         System.out.println(String.format("Pet has been registered: name: %s, species: %s", name, species));
