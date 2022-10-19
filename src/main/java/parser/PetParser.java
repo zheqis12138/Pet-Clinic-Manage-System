@@ -1,6 +1,7 @@
 package parser;
 
 import command.*;
+import petExceptions.*;
 
 public class PetParser {
     private int lengthOfSignature;
@@ -12,13 +13,12 @@ public class PetParser {
     }
 
 
-    public Command parsePet(String input){
+    public Command parsePet(String input) throws NotEnoughParameterException{
         if(!input.contains(" ")){
             if(input.equals("view")){
                 return new ViewPetCommand();
             }
-            System.out.println("Error: too little parameters entered for pet operation");
-            return new EndCommand();
+            throw new NotEnoughParameterException();
         }
 
         String type = input.substring(0,input.indexOf(" "));

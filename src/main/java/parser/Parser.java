@@ -1,5 +1,6 @@
 package parser;
 import command.*;
+import petExceptions.NotEnoughParameterException;
 
 public class Parser {
     private final int lengthOfSignature = 3;
@@ -36,7 +37,13 @@ public class Parser {
         case "appointment":
             return appointmentParser.parseAppointment(statement);
         case "pet":
-            return petParser.parsePet(statement);
+            try{
+                return petParser.parsePet(statement);
+            }
+            catch (NotEnoughParameterException npe){
+                return new PetIncorrectCommand(npe.toString());
+            }
+
         case "employee":
             return employeeParser.parseEmployee(statement);
         case "service":
