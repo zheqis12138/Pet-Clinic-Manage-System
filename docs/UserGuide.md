@@ -179,6 +179,7 @@ Format: `pet add n/NAME s/SPECIES h/HEALTH`
 * The `NAME` is the name of the pet
 * The `SPECIES` is the species of the pet
 * The `HEALTH` must be either 0(unhealthy) or 1(healthy)
+* Once the pet is added, the status of the pet is initialised randomly with respect to its health condition.
 
 Example of usage:
 `pet add n/Eliza s/cat h/0`
